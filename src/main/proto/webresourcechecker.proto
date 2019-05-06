@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.fchuiko.grpc";
+option java_outer_classname = "WebResourceCheckerProto";
+option objc_class_prefix = "HLW";
+
+package org.fchuiko.grpc;
+
+service Checker {
+    rpc CheckResource (WebResource) returns (CheckResult) {}
+}
+
+message WebResource {
+    string address = 1;
+}
+
+message CheckResult {
+    int32 responseCode = 1;
+    uint64 responseDelay = 2;
+}
